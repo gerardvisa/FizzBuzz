@@ -1,4 +1,4 @@
-package com.gvb.minigames.fizzbuzz;
+package com.minigames.fizzbuzz;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

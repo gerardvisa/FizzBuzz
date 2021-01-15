@@ -1,4 +1,4 @@
-package com.gvb.minigames.fizzbuzz;
+package com.minigames.fizzbuzz;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
