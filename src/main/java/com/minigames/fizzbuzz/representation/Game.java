@@ -1,16 +1,19 @@
 package com.minigames.fizzbuzz.representation;
 
+import org.springframework.beans.factory.annotation.Value;
+
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class FizzBuzzGame {
+public class Game {
     private int id;
     private int startingNumber;
     public static int targetNumber;
     private Date completionDate;
-    private List<String> resultingGame;
+    private List<String> resultingGame = new ArrayList<>();
 
-    public FizzBuzzGame(int startingNumber) {
+    public Game(int startingNumber) {
         this.startingNumber = startingNumber;
     }
 
