@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 public class FizzBuzzGame {
+    private int id;
     private int startingNumber;
     public static int targetNumber;
     private Date completionDate;
@@ -11,6 +12,14 @@ public class FizzBuzzGame {
 
     public FizzBuzzGame(int startingNumber) {
         this.startingNumber = startingNumber;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getStartingNumber() {
