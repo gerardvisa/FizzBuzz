@@ -1,20 +1,14 @@
 package com.minigames.fizzbuzz.functional;
 
 import com.minigames.fizzbuzz.representation.Game;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
 
 import java.util.Date;
 
-@PropertySource("application.properties")
 public class GameProcessor {
-    @Value("${fizzbuzz.targetNumber}")
-    private int targetNumber;
-
-    public Game solveGame (int startingNumber) {
-        meetingRequirements(startingNumber);
+    public Game solveGame (int startingNumber, int targetNumber) {
+        meetingRequirements(startingNumber, targetNumber);
         Game game = new Game();
-        for (int currentNum = startingNumber; currentNum < targetNumber; currentNum++) {
+        for (int currentNum = startingNumber; currentNum <= targetNumber; currentNum++) {
             String currentStr = "";
             if (currentNum % 3 == 0) currentStr += "fizz";
             if (currentNum % 5 == 0) currentStr += "buzz";
@@ -25,7 +19,7 @@ public class GameProcessor {
         return game;
     }
 
-    private void meetingRequirements(int startingNumber) {
+    private void meetingRequirements(int startingNumber, int targetNumber) {
         if (startingNumber < 1) {
             //an exception will be thrown
             System.err.println("Invalid starting number: too small");
