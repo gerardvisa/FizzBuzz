@@ -1,14 +1,13 @@
 package com.minigames.fizzbuzz.functional;
 
-import com.minigames.fizzbuzz.representation.Game;
+import com.minigames.fizzbuzz.representation.Fizzbuzz;
 
 import java.util.Date;
 
-public class GameProcessor {
-    public Game solveGame (int startingNumber, int targetNumber) {
-        meetingRequirements(startingNumber, targetNumber);
-        Game game = new Game();
-        for (int currentNum = startingNumber; currentNum <= targetNumber; currentNum++) {
+public class FizzbuzzProcessor {
+    public static Fizzbuzz solveGame(Fizzbuzz game) {
+        validateInputParameters(game.getStartingNumber(), game.getTargetNumber());
+        for (int currentNum = game.getStartingNumber(); currentNum <= game.getTargetNumber(); currentNum++) {
             String currentStr = "";
             if (currentNum % 3 == 0) currentStr += "fizz";
             if (currentNum % 5 == 0) currentStr += "buzz";
@@ -19,7 +18,7 @@ public class GameProcessor {
         return game;
     }
 
-    private void meetingRequirements(int startingNumber, int targetNumber) {
+    private static void validateInputParameters(int startingNumber, int targetNumber) {
         if (startingNumber < 1) {
             //an exception will be thrown
             System.err.println("Invalid starting number: too small");
