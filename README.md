@@ -42,4 +42,6 @@ I will go for a WebService RESTful written in Java since it is the language I am
 - Log4j: makes the logging process way easier.
 - JUnit: really useful for unit testing in Java.
 ### How will we meet every requirement?
-This section will be written on the way, as I find ways to meet every requirement described in "Main goal" and "Additional technical requisites":
+This section will be written on the way, as I find ways to meet every requirement:
+- **SOLID architecture**:
+    - **S (Single Responsibility Principle)**: Classes have been created for a single purpose. There is an Application class that runs the program and all the necessary Spring initialization, a REST Controller that handles requests and forward them to the business logic, a GameProcessor responsible of validating the input data and then solving the FizzBuzz game with our own algorithm and finally a Game class that holds the data representation.
