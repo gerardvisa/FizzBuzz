@@ -1,13 +1,13 @@
-package com.gvb.minigames.fizzbuzz;
+package com.minigames.fizzbuzz;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FizzbuzzApplication {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FizzbuzzApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 }
