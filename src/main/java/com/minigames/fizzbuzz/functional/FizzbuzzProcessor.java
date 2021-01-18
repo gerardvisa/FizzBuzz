@@ -1,11 +1,13 @@
 package com.minigames.fizzbuzz.functional;
 
+import com.minigames.fizzbuzz.exception.StartNumGreaterThanTargetException;
+import com.minigames.fizzbuzz.exception.StartNumTooSmallException;
 import com.minigames.fizzbuzz.representation.Fizzbuzz;
 
 import java.util.Date;
 
 public class FizzbuzzProcessor {
-    public static Fizzbuzz solveGame(Fizzbuzz game) {
+    public static Fizzbuzz solveGame(Fizzbuzz game) throws StartNumGreaterThanTargetException, StartNumTooSmallException {
         validateInputParameters(game.getStartingNumber(), game.getTargetNumber());
         for (int currentNum = game.getStartingNumber(); currentNum <= game.getTargetNumber(); currentNum++) {
             String currentStr = "";
@@ -18,14 +20,12 @@ public class FizzbuzzProcessor {
         return game;
     }
 
-    private static void validateInputParameters(int startingNumber, int targetNumber) {
+    private static void validateInputParameters(int startingNumber, int targetNumber) throws StartNumGreaterThanTargetException, StartNumTooSmallException {
         if (startingNumber < 1) {
-            //an exception will be thrown
-            System.err.println("Invalid starting number: too small");
+            throw new StartNumTooSmallException("Invalid starting number: too small");
         }
         if (startingNumber > targetNumber) {
-            //an exception will be thrown
-            System.err.println("Invalid starting number: greater than the maximum allowed (" + targetNumber + ")");
+            throw new StartNumGreaterThanTargetException("Invalid starting number: greater than the maximum allowed (" + targetNumber + ")");
         }
     }
 }
