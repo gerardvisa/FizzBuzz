@@ -1,17 +1,19 @@
-package com.minigames.fizzbuzz.functional;
+package com.minigames.fizzbuzz.service;
 
 import com.minigames.fizzbuzz.exception.StartNumGreaterThanTargetException;
 import com.minigames.fizzbuzz.exception.StartNumTooSmallException;
 import com.minigames.fizzbuzz.representation.Fizzbuzz;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
-public class FizzbuzzProcessor {
-    static Logger logger = LoggerFactory.getLogger(FizzbuzzProcessor.class);
+@Service
+public class FizzbuzzService {
+    Logger logger = LoggerFactory.getLogger(FizzbuzzService.class);
 
-    public static Fizzbuzz solveGame(Fizzbuzz game) throws StartNumGreaterThanTargetException, StartNumTooSmallException {
+    public Fizzbuzz solveGame(Fizzbuzz game) throws StartNumGreaterThanTargetException, StartNumTooSmallException {
         validateInputParameters(game.getStartingNumber(), game.getTargetNumber());
         for (int currentNum = game.getStartingNumber(); currentNum <= game.getTargetNumber(); currentNum++) {
             String currentStr = "";
@@ -24,7 +26,7 @@ public class FizzbuzzProcessor {
         return game;
     }
 
-    private static void validateInputParameters(int startingNumber, int targetNumber) throws StartNumGreaterThanTargetException, StartNumTooSmallException {
+    private void validateInputParameters(int startingNumber, int targetNumber) throws StartNumGreaterThanTargetException, StartNumTooSmallException {
         if (startingNumber < 1) {
             throw new StartNumTooSmallException("Invalid starting number: too small");
         }
